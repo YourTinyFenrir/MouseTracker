@@ -3,10 +3,17 @@
 #include "QDateTime"
 #include "QString"
 #include "QTextStream"
+#include "QDir"
 
 WriteToFile::WriteToFile()
 {
+    QDir dir(".\\saves");
 
+    if (!dir.exists()) {
+        dir.mkpath(".");
+    }
+
+   this->folder = ".\\saves";
 }
 
 WriteToFile::WriteToFile(QString folder) : WriteToFile()

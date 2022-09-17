@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->Y->setAlignment(Qt::AlignCenter);
     ui->distance->setAlignment(Qt::AlignCenter);
 
+    ui->pushButton_Stop->setEnabled(false);
+
 }
 
 MainWindow::~MainWindow()
@@ -100,12 +102,17 @@ void MainWindow::on_pushButton_Start_clicked()
     trackInf->clearDistance(); // При возобновлении таймера время и расстояние обнуляется
     ui->distance->setText(QString("%1").arg(trackInf->getDistance())); // Обновление информации на UI
     timer->start(trackInf->getTimeInMilliseconds());
+
+    ui->pushButton_Start->setEnabled(false);
+    ui->pushButton_Stop->setEnabled(true);
 }
 
 
 void MainWindow::on_pushButton_Stop_clicked()
 {
     timer->stop();
+    ui->pushButton_Stop->setEnabled(false);
+    ui->pushButton_Start->setEnabled(true);
 }
 
 
