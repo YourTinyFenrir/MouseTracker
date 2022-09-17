@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setting = new QSettings("settings.ini", QSettings::IniFormat);
+    setting = new QSettings("./settings.ini", QSettings::IniFormat);
 
     trackInf = new TrackingInfo(setting->value("time").toInt());
     writeToFile = new WriteToFile(setting->value("folder").toString());
