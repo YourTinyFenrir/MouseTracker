@@ -8,7 +8,7 @@ TrackingInfo::TrackingInfo()
     this->lastPoint.setX(-1);
     this->lastPoint.setY(-1);
     this->isCheck = false;
-    this->time = 30 * 1000;
+    this->time = 30;
 }
 
 TrackingInfo::TrackingInfo(int time) : TrackingInfo()
